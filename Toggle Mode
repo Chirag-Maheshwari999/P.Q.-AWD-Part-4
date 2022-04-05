@@ -1,0 +1,94 @@
+JavaScript is a great way to make our page dynamic and add events to our page.
+Let's make an interesting feature for our web page. Using this feature the user can switch between two themes for their web page.
+We have to simulate between dark and light modes in our web page. Dark mode has black background and white text, while light mode has white background and black text.
+Their is a toggle button at the top and some text below it.
+
+When the web page is loaded, it would look like this -
+ no image
+
+After clicking on the toggle button
+
+
+HTML PART~
+
+<html><head>
+    <title>Toggle Mode</title>
+</head>
+<body>
+   
+   <div id="toggle">
+       <div id="circle" class="animate"></div>
+   </div>
+   
+   <h1>Click on the Toggle Button</h1>
+   
+
+</body></html>
+
+
+CSS PART~
+
+#toggle {
+    background-color: white;
+    width: 140px;
+    height: 40px;
+    border-radius: 20px;
+    border: 2px solid black;
+    margin: 50px auto;
+    cursor: pointer;
+}
+
+#circle {
+    width: 38px;
+    height: 38px;
+    background-color: black;
+    border-radius: 50%;
+    margin-top: 1px;
+    transition-duration: 1s;
+    margin-left: 1px;
+}
+
+h1 {
+    font-size: 5rem;
+    margin: 100px auto;
+    text-align: center;
+}
+
+.color-white {
+    color: white;
+}
+
+.bck-color-black {
+    background-color: black;
+}
+
+
+JAVASCRIPT PART~
+
+var toggled = false;
+
+var hTag = document.getElementsByTagName("h1")[0];
+var bodyTag = document.getElementsByTagName("body")[0];
+var circle = document.getElementById("circle");
+
+document.getElementById("toggle").onclick = function () {
+        
+    if(!toggled) {
+        
+        hTag.classList.add("color-white");
+        bodyTag.classList.add("bck-color-black");
+        circle.style.marginLeft = "100px";
+        
+        toggled = true;
+        
+    } else {
+        
+        hTag.classList.remove("color-white");
+        bodyTag.classList.remove("bck-color-black");
+        circle.style.marginLeft = "1px";
+        
+        toggled = false;
+        
+    }
+    
+}
