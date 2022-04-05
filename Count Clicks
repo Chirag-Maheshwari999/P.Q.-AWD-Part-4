@@ -1,0 +1,56 @@
+Let's make a counter using JavaScript. But it's a bit different; it increases only when you click on a box.
+So create a big box in the center of the web page and add a counter below it.
+When you click on the box the counter should increases by one.
+
+The image below shows how the web page would look like -
+ no image
+
+After 5 clicks on the box
+
+HTML PART~
+
+<html><head>
+    <title>Click Count</title>
+</head>
+<body>
+
+    <div id="box"></div>
+
+    <h1> Box Clicked <span id="click-count"> 0 </span> times </h1>
+
+
+</body></html>
+
+
+CSS PART~
+
+#box {
+    height: 250px;
+    width: 250px;
+    background-color: red;
+    margin: 100px auto;
+    cursor: pointer;
+}
+
+#box:hover {
+    box-shadow: 0px 0px 30px grey;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+
+JAVASCIPT PART~
+
+
+var box = document.getElementById('box');
+var clickCount = document.getElementById('click-count');
+count = 0;
+
+box.addEventListener('click', function(){
+    count++;
+    console.log(count);
+    clickCount.innerText = count + " ";
+});
